@@ -190,7 +190,10 @@ var heart=document.createElement("div");
 heart.className="heart";
 heart.innerHTML="🤍";
 
-heart.style.left=Math.random()*100+"vw";
+/* توزيع عشوائي حقيقي */
+heart.style.left=Math.random()*window.innerWidth+"px";
+heart.style.top="100vh";
+
 heart.style.fontSize=(15+Math.random()*25)+"px";
 heart.style.animationDuration=(4+Math.random()*4)+"s";
 
@@ -200,6 +203,7 @@ setTimeout(function(){
 heart.remove();
 },8000);
 }
+
 
 setInterval(createHeart,500);
 
@@ -328,4 +332,5 @@ el.scrollIntoView({behavior:"smooth"});
 
 </body>
 </html>
+
 
