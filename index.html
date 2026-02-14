@@ -158,7 +158,18 @@ box-shadow:0 5px 20px rgba(0,0,0,0.3);
 
 <div class="count" id="counter"></div>
 
-<button onclick="secret()">رسالة صغيرة لك</button>
+    
+
+<button onclick="secret(
+    function secret(){
+    var el = document.getElementById("secretText");
+    el.classList.remove("hidden");
+    el.scrollIntoView({behavior:"smooth"});
+}
+
+)">رسالة صغيرة لك</button>
+
+
 
 <div id="secretText" class="secret hidden">
 أحب هدوءك،
@@ -326,3 +337,4 @@ setInterval(createHeart,500);
 
 </body>
 </html>
+
