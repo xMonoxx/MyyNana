@@ -33,9 +33,16 @@ z-index:1;
 }
 
 .heart{
-position:absolute;
-color:rgba(255,182,193,0.7);
-font-size:20px;
+position:fixed;
+top:0;
+left:0;
+width:100vw;
+height:100vh;
+pointer-events:none;
+overflow:hidden;
+z-index:0;
+}
+
 animation:floatUp linear infinite;
 }
 
@@ -190,14 +197,15 @@ var heart=document.createElement("div");
 heart.className="heart";
 heart.innerHTML="🤍";
 
-/* توزيع عشوائي حقيقي */
-heart.style.left=Math.random()*window.innerWidth+"px";
-heart.style.top="100vh";
+/* توزيع عشوائي بعرض الشاشة */
+heart.style.position="fixed";
+heart.style.left=(Math.random()*100)+"vw";
+heart.style.bottom="-20px";
 
 heart.style.fontSize=(15+Math.random()*25)+"px";
 heart.style.animationDuration=(4+Math.random()*4)+"s";
 
-document.getElementById("hearts").appendChild(heart);
+document.body.appendChild(heart);
 
 setTimeout(function(){
 heart.remove();
@@ -332,5 +340,6 @@ el.scrollIntoView({behavior:"smooth"});
 
 </body>
 </html>
+
 
 
