@@ -6,20 +6,26 @@
 <title>إلى سلطانتي 🤍</title>
 
 <style>
-  #hearts{
+
+#hearts{
 position:fixed;
 top:0;
 left:0;
 width:100%;
 height:100%;
-z-index:-1;
-overflow:hidden;
 pointer-events:none;
+overflow:hidden;
+z-index:0;
+}
+
+.hero{
+position:relative;
+z-index:1;
 }
 
 .heart{
 position:absolute;
-color:rgba(255,182,193,0.6);
+color:rgba(255,182,193,0.7);
 font-size:20px;
 animation:floatUp linear infinite;
 }
@@ -31,7 +37,7 @@ opacity:0;
 }
 10%{opacity:1;}
 100%{
-transform:translateY(-10vh) scale(1.5);
+transform:translateY(-10vh) scale(1.4);
 opacity:0;
 }
 }
@@ -50,7 +56,6 @@ color:#ffd6b3;
 }
 
 body{
-  <div id="hearts"></div>
 margin:0;
 font-family:Tajawal, sans-serif;
 background:#3b2a22;
@@ -58,15 +63,6 @@ color:white;
 text-align:center;
 overflow-x:hidden;
 scroll-behavior:smooth;
-}
-
-.hero{
-min-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-padding:20px;
 }
 
 h1{font-size:42px;}
@@ -112,7 +108,6 @@ margin-top:20px;
 color:#ffd6b3;
 }
 
-/* تأثير ظهور الرسالة */
 .secret{
 margin-top:50px;
 font-size:18px;
@@ -127,50 +122,14 @@ transition:all .8s ease;
 opacity:1;
 transform:translateY(0);
 }
-<style>
-
-/* ستايلاتك الحالية هنا */
-
-#hearts{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-pointer-events:none;
-overflow:hidden;
-z-index:0;
-}
-
-.hero{
-position:relative;
-z-index:1;
-}
-
-.heart{
-position:absolute;
-color:rgba(255,182,193,0.7);
-font-size:20px;
-animation:floatUp linear infinite;
-}
-
-@keyframes floatUp{
-0%{
-transform:translateY(100vh) scale(1);
-opacity:0;
-}
-10%{opacity:1;}
-100%{
-transform:translateY(-10vh) scale(1.4);
-opacity:0;
-}
-}
 
 </style>
-
 </head>
 
 <body>
+
+<!-- عنصر القلوب -->
+<div id="hearts"></div>
 
 <div class="hero">
 
@@ -216,11 +175,8 @@ opacity:0;
 
 <script>
 
-// زر البداية
-function start(){
-document.getElementById("startBtn").style.display="none";
-  
-  function createHeart(){
+// إنشاء القلوب
+function createHeart(){
 var heart=document.createElement("div");
 heart.className="heart";
 heart.innerHTML="🤍";
@@ -238,6 +194,9 @@ heart.remove();
 
 setInterval(createHeart,500);
 
+// زر البداية
+function start(){
+document.getElementById("startBtn").style.display="none";
 
 // تشغيل الأغنية
 var iframe=document.createElement("iframe");
@@ -255,7 +214,6 @@ document.body.appendChild(iframe);
 typeWriter();
 }
 
-// النص (بدون تغيير)
 var text=`من 20 أكتوبر 2025
 وانتي سرتي أجمل شيء في أيامي...
 
@@ -323,14 +281,12 @@ el.innerHTML=el.innerHTML.replace("Cara Mia",
 "<span class='highlight'>Cara Mia</span>");
 }
 
-// إظهار المحتوى
 function showContent(){
 document.getElementById("continueBtn").style.display="none";
 document.getElementById("content").classList.remove("hidden");
 document.getElementById("content").scrollIntoView({behavior:"smooth"});
 }
 
-// عداد الأيام
 var startDate=new Date("2025-12-19").getTime();
 setInterval(()=>{
 var now=new Date().getTime();
@@ -340,7 +296,6 @@ document.getElementById("counter").innerHTML=
 "من أول لقاء لنا: "+days+" يوم 🤎";
 },1000);
 
-// حركة الصور عند التمرير
 var images=document.querySelectorAll(".gallery img");
 function showImages(){
 images.forEach(img=>{
@@ -353,15 +308,10 @@ img.style.transform="translateY(0)";
 }
 window.addEventListener("scroll",showImages);
 
-// الرسالة بتأثير ناعم
 function secret(){
 var el=document.getElementById("secretText");
 el.classList.remove("hidden");
-
-setTimeout(function(){
-el.classList.add("show");
-},50);
-
+setTimeout(function(){ el.classList.add("show"); },50);
 el.scrollIntoView({behavior:"smooth"});
 }
 
@@ -369,8 +319,3 @@ el.scrollIntoView({behavior:"smooth"});
 
 </body>
 </html>
-
-
-
-
-
