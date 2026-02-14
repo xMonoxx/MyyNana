@@ -170,7 +170,33 @@ box-shadow:0 5px 20px rgba(0,0,0,0.3);
 function secret(){
     var el = document.getElementById("secretText");
     el.classList.remove("hidden");
+
+    // تأخير بسيط عشان يبدأ الانتقال
+    setTimeout(function(){
+        el.classList.add("show");
+    },50);
+
     el.scrollIntoView({behavior:"smooth"});
+}
+
+    .hidden{
+    display: none;
+}
+.secret{
+margin-top:50px;
+font-size:18px;
+opacity:0;
+white-space:pre-line;
+line-height:2;
+transform:translateY(20px);
+transition:all 0.8s ease;
+}
+
+.secret.show{
+opacity:1;
+transform:translateY(0);
+}
+
 }
 </script>
 
@@ -341,5 +367,6 @@ setInterval(createHeart,500);
 
 </body>
 </html>
+
 
 
