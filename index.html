@@ -151,11 +151,15 @@ document.getElementById("startBtn").style.display="none";
 
 // تشغيل الأغنية
 var iframe=document.createElement("iframe");
-iframe.width="0";
-iframe.height="0";
+iframe.style.position="fixed";
+iframe.style.bottom="0";
+iframe.style.right="0";
+iframe.style.width="1px";
+iframe.style.height="1px";
+iframe.style.opacity="0.01";
+iframe.style.border="none";
 iframe.src="https://www.youtube.com/embed/NB7WuqWzDhw?start=42&autoplay=1&loop=1&playlist=NB7WuqWzDhw";
 iframe.allow="autoplay";
-iframe.style.display="none";
 document.body.appendChild(iframe);
 
 typeWriter();
@@ -275,5 +279,6 @@ el.scrollIntoView({behavior:"smooth"});
 
 </body>
 </html>
+
 
 
