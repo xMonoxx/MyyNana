@@ -160,18 +160,22 @@ box-shadow:0 5px 20px rgba(0,0,0,0.3);
 
     
 
-<button onclick="secret(
-    function secret(){
+<button onclick="secret()">رسالة صغيرة لك</button>
+
+<div id="secretText" class="secret hidden">
+...
+</div>
+
+<script>
+function secret(){
     var el = document.getElementById("secretText");
     el.classList.remove("hidden");
     el.scrollIntoView({behavior:"smooth"});
 }
-
-)">رسالة صغيرة لك</button>
-
+</script>
 
 
-<div id="secretText" class="secret hidden">
+
 أحب هدوءك،
 طريقتك،
 عصبيتك،
@@ -337,4 +341,5 @@ setInterval(createHeart,500);
 
 </body>
 </html>
+
 
